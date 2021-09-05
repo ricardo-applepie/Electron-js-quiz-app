@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Hello World!</title>
+    
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+    <body>
+        <div class="page__width">
+
+            <nav class="navabar">
+                <ul class="navabar__wrapper">
+                    <li class="navabar__item"> <a>icon </a></li>
+                    <li class="navabar__item"> <a>reset</a></li>
+                    <li class="navabar__item score"> <a>total </a></li>
+                </ul>
+            </nav>
+             
+            <section>
+            
+                <div >
+                    <h1 id="question__text"></h1>
+                </div>
+                <div class="answers">
+                </div>
+            </section>
+
+   
+            <section class="buttons__wrapper display__flex">
+                <div>
+                    <button class="reset-btn"> Reset  </button>
+                </div> 
+                <div>
+                    <button class="nextButton"> Next </button>
+                </div>
+            </section>
+
+        </div>
+    </body>
+    <script src="./script.js"></script>
+</html>
+
