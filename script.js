@@ -43,13 +43,13 @@ const questions = [
 
 
 const rightAns = [
-    0, 2, 3, 2, 3, 2, 1, 2, 3, 2
+    1, 0, 1, 3, 0, 0, 2, 0, 0, 2
 ]
 
 let userAns=[]
 
 
-
+let sum = 0
 let questionLength = questions.length;
 let questionNumber = 0;
 let totalScore= 0;
@@ -94,37 +94,42 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 nextButton.addEventListener("click", function () {
-
+ 
     Array.from(btn, (button,index) => {
         if (button.classList.contains("selected-answer")){
             // console.log(index, button)
             userAns.push(index);
-            console.log(userAns);
+   
         }
     });
 
 try {
     if (questionNumber == questionLength-1){
         questionNumber=-1 ;
-        for (let i = 0; i <=rightAns.length;i++){
+        for (let i = 0; i <=rightAns.length-1;i++){
             if (rightAns[i] == userAns[i]){
                   totalScore+=1 ;               
+            }else{
+                totalScore = totalScore;
             }
         }
-        console.log(totalScore);
+      
+      
+        score.innerHTML = totalScore;
         alert(`you have ${totalScore} correct of ${rightAns.length || userAns.length}`);
-        totalScore=0;
+    
+        // totalScore=0;
         userAns.length=0
     }
     if (seleted){
         questionNumber++;
-
-        score.innerHTML = totalScore;
         questionText.innerHTML = questions[questionNumber].question;
         questionAnswers.innerHTML = "";
         html = ""
         displayAnswers();
         seleted = false;
+    }else{
+        alert("Please select Answer")
     }
 
 
@@ -152,7 +157,6 @@ selectedAnwser.addEventListener("click",function(e){
     });
     e.target.classList.toggle("selected-answer");
     seleted = true;
-    console.log(seleted);
 })
 
 
