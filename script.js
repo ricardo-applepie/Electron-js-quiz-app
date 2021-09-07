@@ -43,10 +43,10 @@ const questions = [
 
 
 const rightAns = [
-    1, 2, 4, 2, 4, 2, 1, 2, 3, 2
+    0, 2, 3, 2, 3, 2, 1, 2, 3, 2
 ]
 
-
+let userAns=[]
 
 
 
@@ -62,7 +62,8 @@ let nextButton = document.querySelector(".nextButton");
 let resetBtn = document.querySelector(".reset-btn");
 let selectedAnwser = document.querySelector(".answers");
 let score = document.querySelector(".score");
-
+let btn = document.getElementsByClassName("btn");
+let seleted = true;
 
 function displayAnswers() {
     for (i = 0; i <= answersLength ; i++) {
@@ -81,6 +82,7 @@ const InitializeApp=()=>{
     questionText.innerHTML = initialQuestionText;
     score.innerHTML = 0;
     displayAnswers()
+    seleted = false;
 }
 
 
@@ -92,21 +94,42 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 nextButton.addEventListener("click", function () {
+
+    Array.from(btn, (button,index) => {
+        if (button.classList.contains("selected-answer")){
+            // console.log(index, button)
+            userAns.push(index);
+            console.log(userAns);
+        }
+    });
+
 try {
     if (questionNumber == questionLength-1){
         questionNumber=-1 ;
-        alert(`you have ${2} correct of ${10}`);
+        for (let i = 0; i <=rightAns.length;i++){
+            if (rightAns[i] == userAns[i]){
+                  totalScore+=1 ;               
+            }
+        }
+        console.log(totalScore);
+        alert(`you have ${totalScore} correct of ${rightAns.length || userAns.length}`);
         totalScore=0;
+        userAns.length=0
     }
-    questionNumber++;
-    totalScore++;
-    console.log(totalScore)
-    score.innerHTML = totalScore;
-    questionText.innerHTML = questions[questionNumber].question;
-    questionAnswers.innerHTML="";
-    html=""
-    displayAnswers()
-     
+    if (seleted){
+        questionNumber++;
+
+        score.innerHTML = totalScore;
+        questionText.innerHTML = questions[questionNumber].question;
+        questionAnswers.innerHTML = "";
+        html = ""
+        displayAnswers();
+        seleted = false;
+    }
+
+
+    // userAns.push(e.target.innerHTML)
+
 } catch (error) {
  console.log(error)
 
@@ -120,7 +143,7 @@ const restApp=()=>{
 }
 
 resetBtn.addEventListener("click", restApp);
-let btn = document.getElementsByClassName("btn");
+
 selectedAnwser.addEventListener("click",function(e){
     
     if (e.target.className =="answers") return ;
@@ -128,7 +151,8 @@ selectedAnwser.addEventListener("click",function(e){
         button.classList.remove("selected-answer");
     });
     e.target.classList.toggle("selected-answer");
-
+    seleted = true;
+    console.log(seleted);
 })
 
 
