@@ -1,19 +1,18 @@
-
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 :root {
   --first-color: #16f;
   --second-color: #ff7;
-  --backgroundColor:aqua;
+  --backgroundColor: aqua;
 }
 
 ul li {
-    list-style: none;
+  list-style: none;
 }
 ul li a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 html,
@@ -21,47 +20,46 @@ body {
   margin: 0;
   padding: 0;
 }
-.navabar{
-   padding:10px 0 10px 0  ;
+.navabar {
+  padding: 10px 0 10px 0;
 }
 
-.display__flex{
-   display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.display__flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.navabar__wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 50px;
+.navabar__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 50px;
 }
-.page__width{
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--backgroundColor);
-    padding: 0 50px 100px 50px ;
+.page__width {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--backgroundColor);
+  padding: 0 50px 100px 50px;
 }
-.answers{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 40px 0 0 0;
-    grid-gap:10px;
-    text-align: center;
-
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 40px 0 0 0;
+  grid-gap: 10px;
+  text-align: center;
 }
-button{
-    padding: 15px ;
-    background-color: black;
-    color: white;
-    border-radius: 25px;
-    border: 0;
-    cursor: pointer;
+button {
+  padding: 15px;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  border: 0;
+  cursor: pointer;
 }
-.buttons__wrapper{
-    margin: 50px 0 0 0 ;
+.buttons__wrapper {
+  margin: 50px 0 0 0;
 }
-.selected-answer{
-background-color: red;
+.selected-answer {
+  background-color: red;
 }
