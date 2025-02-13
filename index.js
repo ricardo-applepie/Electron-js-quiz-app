@@ -9,7 +9,6 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
-
   win.loadFile('index.html');
 }
 
@@ -18,6 +17,7 @@ app.whenReady().then(() => {
   const mainMenu = Menu.buildFromTemplate(mainMenutemplate);
   Menu.setApplicationMenu(mainMenu);
 });
+
 // handle creatAddWindow
 const createAddWindow = () => {
   const shoplistwin = new BrowserWindow({
